@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import javax.print.DocFlavor;
+
 public class IntListTest {
 
     /**
@@ -25,6 +27,15 @@ public class IntListTest {
         IntList L = IntList.of(1, 2, 3);
         IntList.dSquareList(L);
         assertEquals(IntList.of(1, 4, 9), L);
+    }
+
+    @Test
+    public void testRverse() {
+        IntList A = IntList.of(1, 2, 3);
+        IntList B = IntList.reverse(A);
+        assertNotEquals(A, B);
+        assertEquals(IntList.of(3, 2, 1), B);
+        assertEquals(IntList.of(null), IntList.reverse(null));
     }
 
     /**
@@ -65,6 +76,8 @@ public class IntListTest {
         assertEquals(exp, IntList.catenate(A, B));
         assertEquals(IntList.of(1, 2, 3), A);
     }
+
+
 
     /** If you're running this from the command line, you'll need
       * to add a main method. See ArithmeticTest.java for an
